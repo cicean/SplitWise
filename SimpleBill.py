@@ -86,7 +86,8 @@ if __name__ == "__main__":
         user = users[username]
         user.total_spend = pre_person_spend + per_day_spend * user.days
         users[username] = user
-        #print("user,", username, "spend,", user.total_spend)
+        print("user,", username, "group spend by person: ", pre_person_spend,
+        ", per_day_spend: ", per_day_spend, "total spend: ", user.total_spend)
         if user.total_paid - user.total_spend > 0.00:
             recieve_q.put(((user.total_paid - user.total_spend) * (-1), username))
             # heapq.heappush(recieve_q, (user.total_paid - user.total_spend, username))
